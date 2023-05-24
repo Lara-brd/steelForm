@@ -5,11 +5,13 @@ import { UsersRoutingModule } from './users-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './components/form/form.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
 
 @NgModule({
   declarations: [
     UsersHomeComponent,
-    FormComponent
+    FormComponent,
+    UsersTableComponent
   ],
   imports: [
     CommonModule,
