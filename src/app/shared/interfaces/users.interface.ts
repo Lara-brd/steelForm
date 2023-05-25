@@ -1,5 +1,6 @@
 export interface UsersInformation {
     name     : string;
+    id       : number;
     province : string;
     city     : string;
     email    : string;

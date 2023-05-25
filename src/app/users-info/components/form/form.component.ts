@@ -10,7 +10,12 @@ import { ValidatorsService } from 'src/app/shared/services/validators.service';
 })
 export class FormComponent implements OnInit{
 
-  newUserName:string =''
+  newUserName:string ='';
+  
+  get id(){
+    return (this.dataSvc.element_data.length +1).toString();
+  }
+
   //LLamo al formgroupDirective para poder resetear el formulario
   @ViewChild(FormGroupDirective)
   FormDirective!:FormGroupDirective;
@@ -18,13 +23,14 @@ export class FormComponent implements OnInit{
   activities:string[] = this.dataSvc.activities;
 
   public myForm:FormGroup = this.fb.group({
-    province: ['Barcelona',[Validators.required] ],
-    name: ['Maraia Luces', [Validators.required, Validators.minLength(3), Validators.pattern(this.validatorsSvc.firstNameAndLastNamePattern)]],
-    email:['jljjlk@dfdf.com', [Validators.required, Validators.pattern(this.validatorsSvc.email)]],
-    phone: ['', [Validators.required, Validators.pattern(this.validatorsSvc.mobilePhone)]],
-    city: ['', [Validators.required, Validators.minLength(2)]],
-    gender: ['M', [Validators.required]],
-    activity: ['cROSss fit', Validators.required]
+    id       : [this.id],
+    province : ['Barcelona',[Validators.required] ],
+    name     : ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.validatorsSvc.firstNameAndLastNamePattern)]],
+    email    : ['', [Validators.required, Validators.pattern(this.validatorsSvc.email)]],
+    phone    : ['', [Validators.required, Validators.pattern(this.validatorsSvc.mobilePhone)]],
+    city     : ['', [Validators.required, Validators.minLength(2)]],
+    gender   : ['M', [Validators.required]],
+    activity : ['', Validators.required]
   })
 
   ////////////////////////////////////
@@ -37,7 +43,6 @@ export class FormComponent implements OnInit{
 
     
   ngOnInit(): void {
-   
   }
 
   //Recibe el campo del input para seleccionar el mensaje dependiendo del error.
@@ -69,13 +74,16 @@ export class FormComponent implements OnInit{
 
     this.dataSvc.setUser(this.myForm.value)
     this.newUserName = this.myForm.controls['name'].value;
- 
+    this.resetForm();
+    
+  }
+
+  resetForm(){
     //ResetForm permite resetear todos los campos del formulario.
-    this.FormDirective.resetForm({province:'Barcelona', gender:'M'});
+    this.FormDirective.resetForm({id:this.id, province:'Barcelona', gender:'M'});
     setTimeout(()=>{                          
       this.newUserName = '';
-  }, 3000);
-    
+    }, 3000);
   }
 
 

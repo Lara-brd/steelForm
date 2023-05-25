@@ -1,14 +1,25 @@
 <form [formGroup]="myForm" class="example-form" (ngSubmit)="onSave()">
 
+  <div class="id-and-name">
 
-    <!-- Province -->
+    <!-- id -->
     <mat-form-field class="example-full-width">
-      <mat-label>Province</mat-label>
-      <input matInput formControlName="province">
-      <mat-error>
-        {{ getFieldError('province')}}
-      </mat-error>
+      <mat-label>ID (disabled)</mat-label>
+      <input matInput disabled [value]="id">
     </mat-form-field>
+  
+  
+      <!-- Province -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Province</mat-label>
+        <input matInput formControlName="province">
+        <mat-error>
+          {{ getFieldError('province')}}
+        </mat-error>
+      </mat-form-field>
+
+  </div>
+
   
     <!-- Name & Surname -->
     <mat-form-field class="example-full-width">
@@ -80,12 +91,13 @@
     <div class="submitBtn">
         <button mat-raised-button type="submit" color="accent">SUBMIT</button>
     </div>
-  
+  |
   </form>
 
   <div *ngIf="newUserName" class="sendedMsg">
-    <p class="new-user">Customer {{newUserName}} added to list</p>
+    <p class="new-user">Customer {{newUserName | titlecase }} added to list</p>
   </div>
+
 
 
 

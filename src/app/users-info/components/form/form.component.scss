@@ -4,6 +4,14 @@ form{
     min-width: 400px;
     max-width: 500px;
 
+    .id-and-name{
+        display: flex;
+        &>mat-form-field:first-child{
+            width:30%;
+            margin-right: 5px;
+        }
+    }
+
     button, mat-form-field {
         width:100%
     }
@@ -25,4 +33,5 @@ form{
     color: white;
     text-align: center;
 }
+
 

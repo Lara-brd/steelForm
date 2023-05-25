@@ -20,13 +20,14 @@ export class UsersTableComponent implements OnInit, OnDestroy{
   // Nombre de cada columna
   displayedColumns = [
     'name',
+    'ID',
     'province',
     'city',
     'email',
     'phone',
     'gender',
     'activity',
-    'star',
+    'delete',
   ];
 
   dataSource: UsersInformation[]= this.dataSvc.element_data;

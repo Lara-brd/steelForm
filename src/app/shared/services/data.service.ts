@@ -33,51 +33,55 @@ export class DataService {
 
     private _ELEMENT_DATA = [
       {
-  
-        name: 'Marta Castillejo', 
+        name    : 'Marta Castillejo', 
+        id      : 1,
         province: 'Barcelona',
-        city: 'Gavà',
-        email: 'marta@test.com',
-        phone: 222556699,
-        gender: 'F',
+        city    : 'Gavà',
+        email   : 'marta@test.com',
+        phone   : 222556699,
+        gender  : 'F',
         activity: 'Group cycling'
       },
       { 
-        name: 'Lucas Amaro', 
+        name    : 'Lucas Amaro',
+        id      : 2,
         province: 'Barcelona',
-        city: 'Barcelona',
-        email: 'lucas@test.com',
-        phone: 23366959584,
-        gender: 'M',
-        activity: 'Holistic'
+        city    :'Barcelona',
+        email   :'lucas@test.com',
+        phone   :233669595,
+        gender  :'M',
+        activity:'Holistic'
       },
       { 
-        name: 'Calos Tello', 
-        province: 'Badalona',
-        city: 'Barcelona',
-        email: 'carlos@test.com',
-        phone: 989663366,
-        gender: 'M',
-        activity: 'Strench and conditioning'
+        name    :'Calos Tello',
+        id      : 3, 
+        province:'Barcelona',
+        city    :'Badalona',
+        email   :'carlos@test.com',
+        phone   : 989663366,
+        gender  :'M',
+        activity:'Strench and conditioning'
       },
       { 
-        name: 'Silvia Ricart', 
-        province: 'Viladecans',
-        city: 'Barcelona',
-        email: 'silvia@test.com',
-        phone: 444125258,
-        gender: 'F',
-        activity: 'Strench and conditioning'
+        name    :'Silvia Ricart',
+        id      : 4,
+        province:'Barcelona',
+        city    :'Viladecans',
+        email   :'silvia@test.com',
+        phone   :444125258,
+        gender  :'F',
+        activity:'Holistic'
       },
       { 
-        name: 'Valeria Vernis', 
-        province: 'Barcelona',
-        city: 'Barcelona',
-        email: 'valeria@test.com',
-        phone: 222548484,
-        gender: 'F',
-        activity: 'Strench and conditioning'
-      },
+        name    :'Valeria Vernis',
+        id      : 5, 
+        province:'Barcelona',
+        city    :'Barcelona',
+        email   :'valeria@test.com',
+        phone   : 222548484,
+        gender  :'M',
+        activity:'Strench and conditioning'
+      }
    
     ];
 
