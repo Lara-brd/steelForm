@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 import { UsersInformation } from 'src/app/shared/interfaces/users.interface';
 import { DataService } from 'src/app/shared/services/data.service';
 
@@ -10,6 +11,9 @@ import { DataService } from 'src/app/shared/services/data.service';
 export class UsersTableComponent implements OnInit, OnDestroy{
 
   subscription:any;
+
+  //recoje la tabla para poder modificarla al borrar usuarios.
+  @ViewChild('tabla') tablaUsuarios!:MatTable<any>;
 
   user!:UsersInformation[];
 
@@ -31,7 +35,7 @@ export class UsersTableComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    //observable de la nueva muestra que trae la nueva array de objetos
+    //observable que trae información del nuevo user del form y lo añade al array de clientes
     this.subscription = this.dataSvc.user$.subscribe(data => {
       this.user = data;
       if(data !== null){
@@ -40,6 +44,13 @@ export class UsersTableComponent implements OnInit, OnDestroy{
       }
     })
   
+  }
+
+  deleteUser(element:UsersInformation){
+    //borro el elemento del array 
+    //utilizao el método renderRows para actualizar la lista cada vez que hay un cambio.
+    this.dataSvc.deleteUser(element);
+    this.tablaUsuarios.renderRows();
   }
 
   ngOnDestroy(): void {

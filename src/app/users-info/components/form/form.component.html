@@ -18,7 +18,7 @@
         {{ getFieldError('name')}}
       </mat-error>
     </mat-form-field>
-  
+
     <!-- City -->
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
@@ -47,22 +47,9 @@
         {{ getFieldError('phone')}}
       </mat-error>
     </mat-form-field>
-
-  
-    <!--Gender -- radio-button -->
-    <label class="example-margin">Gender:</label>
-    <mat-radio-group formControlName="gender">
-      <mat-radio-button class="example-margin" value="M">
-        Male 
-      </mat-radio-button>
-      <mat-radio-button class="example-margin" value="F">
-        Female
-      </mat-radio-button>
-    </mat-radio-group>
-  
   
     <!-- Activities list -->
-    <mat-form-field class="example-full-width">
+    <mat-form-field appearance="outline" class="example-full-width">
       <mat-label>Activity</mat-label>
       <input type="text"
             placeholder="Pick activity"
@@ -76,15 +63,29 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
+
+    <!--Gender -- radio-button -->
+    <label class="example-margin">Gender:</label>
+      <mat-radio-group formControlName="gender">
+        <mat-radio-button class="example-margin" value="M">
+          Male 
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="F">
+          Female
+        </mat-radio-button>
+      </mat-radio-group>
   
     
     <!-- button  submit -->
-    <div>
+    <div class="submitBtn">
         <button mat-raised-button type="submit" color="accent">SUBMIT</button>
-
     </div>
   
   </form>
+
+  <div *ngIf="newUserName" class="sendedMsg">
+    <p class="new-user">Customer {{newUserName}} added to list</p>
+  </div>
 
 
 

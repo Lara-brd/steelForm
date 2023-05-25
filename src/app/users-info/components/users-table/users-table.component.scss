@@ -1,11 +1,8 @@
-
-
 .table-container {
     width: 98%;
     max-width: 100%;
     overflow: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto
   }
   
   table {
@@ -23,16 +20,28 @@
   
   .mat-mdc-table-sticky-border-elem-right {
     border-left: 1px solid #e0e0e0;
-    background-color: purple;
-
+    background-color: #fb8c00;
   }
-  
+
+
   .mat-mdc-table-sticky-border-elem-left {
     border-right: 1px solid #e0e0e0;
   }
 
-  .address-cell{
+  .activity-cell, .mat-mdc-table-sticky-border-elem-left {
     min-width: 150px;
   }
+
+  .name-cell-style{
+    border-right: 1px solid #fb8c00;
+  }
+
+  //smaller version
+    @media screen and (max-width: 885px) {
+      .table-container {
+        width: 100%;
+      }
+      
+    }
 
   

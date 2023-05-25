@@ -16,12 +16,14 @@
   
       <!-- contenido -->
       <mat-toolbar color="primary">
-        <button mat-icon-button
+        <button mat-icon-button class="arrow-icon"
                 (click)="sidenav.toggle()">
           <mat-icon>
             arrow_back_ios
           </mat-icon>
         </button>
+        <span class="spacer"></span>
+        <img width="120px" src="../../../../assets/images/steelwhite.png" alt="logo gimnasio">
       </mat-toolbar>
       <div class="table-content">
         <app-users-table></app-users-table>

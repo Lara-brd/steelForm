@@ -3,14 +3,26 @@ form{
     padding:10px;
     min-width: 400px;
     max-width: 500px;
+
+    button, mat-form-field {
+        width:100%
+    }
+    
+    mat-form-field{
+        margin:5px 0;
+    }
+    
+    .submitBtn {
+        margin-top:40px;
+    }
 }
 
-
-button, mat-form-field {
-    width:100%
+.new-user{
+    border-radius: 5px;
+    margin:10px;
+    padding: 30px 5px;
+    background: #424242;
+    color: white;
+    text-align: center;
 }
 
-
-mat-form-field{
-    margin:5px 0;
-}

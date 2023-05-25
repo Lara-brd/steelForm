@@ -8,12 +8,20 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DataService {
 
-  //OBSERVABLE
-  user$ = new BehaviorSubject<any>(null);
+  //OBSERVABLE ( get y set)
+  private _user$ = new BehaviorSubject<any>(null);
 
+  get user$(){
+    return this._user$;
+  }
+  setUser(user:UsersInformation){
+    this._user$.next(user);
+  }
+
+  
   //DUMMY DB ////////////////////////////////////
 
-  //Actividades________________
+  //Dummy activities Data________________
 
   private _activities:string[] = [ 'Group cycling', 'Holistic', 'Strench and conditioning', 'High Intensity'];
 
@@ -35,13 +43,40 @@ export class DataService {
         activity: 'Group cycling'
       },
       { 
-        name: 'Martin Castillo', 
+        name: 'Lucas Amaro', 
         province: 'Barcelona',
         city: 'Barcelona',
-        email: 'martin@test.com',
-        phone: 222222222,
+        email: 'lucas@test.com',
+        phone: 23366959584,
         gender: 'M',
         activity: 'Holistic'
+      },
+      { 
+        name: 'Calos Tello', 
+        province: 'Badalona',
+        city: 'Barcelona',
+        email: 'carlos@test.com',
+        phone: 989663366,
+        gender: 'M',
+        activity: 'Strench and conditioning'
+      },
+      { 
+        name: 'Silvia Ricart', 
+        province: 'Viladecans',
+        city: 'Barcelona',
+        email: 'silvia@test.com',
+        phone: 444125258,
+        gender: 'F',
+        activity: 'Strench and conditioning'
+      },
+      { 
+        name: 'Valeria Vernis', 
+        province: 'Barcelona',
+        city: 'Barcelona',
+        email: 'valeria@test.com',
+        phone: 222548484,
+        gender: 'F',
+        activity: 'Strench and conditioning'
       },
    
     ];
@@ -59,6 +94,14 @@ export class DataService {
   //////////////////////////
 
   constructor() { }
+
+  //Eliminar elementos de la tabla
+  //busco el indice recogiendo el objeto user
+  //lo elimino con splice
+  deleteUser(user:UsersInformation){
+    const i = this._ELEMENT_DATA.indexOf(user);
+    this._ELEMENT_DATA.splice(i,1);
+  }
 
 }
 

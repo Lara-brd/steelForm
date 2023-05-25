@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
@@ -8,8 +8,9 @@ import { ValidatorsService } from 'src/app/shared/services/validators.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
 
+  newUserName:string =''
   //LLamo al formgroupDirective para poder resetear el formulario
   @ViewChild(FormGroupDirective)
   FormDirective!:FormGroupDirective;
@@ -34,7 +35,10 @@ export class FormComponent {
     private dataSvc:DataService
     ){}
 
-
+    
+  ngOnInit(): void {
+   
+  }
 
   //Recibe el campo del input para seleccionar el mensaje dependiendo del error.
   getFieldError(field:string): string | null {
@@ -57,12 +61,24 @@ export class FormComponent {
   
 
   onSave(){
+
     if(this.myForm.invalid){
       this.myForm.markAllAsTouched();
       return
     }
-    this.dataSvc.user$.next(this.myForm.value);
+
+    this.dataSvc.setUser(this.myForm.value)
+    this.newUserName = this.myForm.controls['name'].value;
+ 
     //ResetForm permite resetear todos los campos del formulario.
     this.FormDirective.resetForm({province:'Barcelona', gender:'M'});
+    setTimeout(()=>{                          
+      this.newUserName = '';
+  }, 3000);
+    
   }
+
+
+
+
 }
